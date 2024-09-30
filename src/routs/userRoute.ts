@@ -13,3 +13,16 @@ export const handleSignupRequst = async (
     console.log(err)
   }
 }
+
+
+export const handleProfileRequest = (
+    req:Request,res:Response
+) =>{
+    const result = {
+        err: false,
+        // @ts-ignore
+        data: UserService.getUserById(req.user.id),
+        status: 200
+    }
+    res.json(result)
+}

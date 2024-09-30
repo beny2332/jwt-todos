@@ -1,10 +1,11 @@
 import { Router } from "express"
-import { handleSignupRequst } from "../routs/userRoute"
+import { handleProfileRequest, handleSignupRequst } from "../routs/userRoute"
+import verifyUser from "../middlewares/verifyUser"
 
 const router = Router()
 
 router.post('/signup', handleSignupRequst)
 
-router.get('/profile', ()=>{})
+router.get('/profile',verifyUser ,handleProfileRequest)
 
 export default router
